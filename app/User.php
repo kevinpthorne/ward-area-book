@@ -51,4 +51,17 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         $this->hasMany('App\District');
     }
+
+    public function position()
+    {
+        switch ($this->user_type) {
+            case self::USER_TYPE_NORMAL:
+                return "Ward Missionary";
+            case self::USER_TYPE_LEADER:
+                return "Ward Mission Leader";
+            case self::USER_TYPE_ROOT:
+                return "Ward Comissioner";
+        }
+        return "Ward Missionary";
+    }
 }

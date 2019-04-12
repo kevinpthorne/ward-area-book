@@ -9286,3 +9286,14 @@ input[type=range]::-ms-thumb {
   margin: 0 !important;
 }
 
+.mobile-fab-tip {
+  position: fixed;
+  right: 85px;
+  padding: 0 0.5rem;
+  text-align: right;
+  background-color: #323232;
+  border-radius: 2px;
+  color: #FFF;
+  width: auto;
+}
+

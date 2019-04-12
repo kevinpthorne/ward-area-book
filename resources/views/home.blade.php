@@ -21,4 +21,36 @@
             </div>
         </div>
     </div>
+
+    <div class="fixed-action-btn">
+        <a class="btn-floating btn-large">
+            <i class="large material-icons">add</i>
+        </a>
+        <ul>
+            <li>
+                <a class="btn-floating indigo"><i class="material-icons">group_work</i></a>
+                <a href="#" class="btn-floating mobile-fab-tip">Districts</a>
+            </li>
+            <li>
+                <a class="btn-floating red"><i class="material-icons">people</i></a>
+                <a href="#" class="btn-floating mobile-fab-tip">Companionships</a>
+            </li>
+            <li>
+                <a class="btn-floating green"><i class="material-icons">person_add</i></a>
+                <a href="#" class="btn-floating mobile-fab-tip">New Person</a>
+            </li>
+            <li>
+                <a class="btn-floating yellow darken-3"><i class="material-icons">assignment_turned_in</i></a>
+                <a href="#" class="btn-floating mobile-fab-tip">New Visit</a>
+            </li>
+        </ul>
+    </div>
+@endsection
+@section('js')
+    <script>
+        $(document).ready(function(){
+            $('.fixed-action-btn').floatingActionButton();
+            $('.tooltipped').tooltip({delay: 50});
+        });
+    </script>
 @endsection
