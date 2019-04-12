@@ -42,7 +42,7 @@
                                     <input id="last_name" type="text"
                                            class="validate {{ $errors->has('last_name') ? ' is-invalid' : '' }}"
                                            name="last_name"
-                                           value="{{ old('first_name') }}" required>
+                                           value="{{ old('last_name') }}" required>
 
                                     <label for="last_name"
                                            class="center-align">{{ __('Last Name') }}</label>
@@ -137,4 +137,16 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('js')
+    @if( $errors->isNotEmpty() )
+        @foreach ($errors->all() as $message)
+            <script>
+                M.toast({
+                    html: "{{ $message }}"
+                });
+            </script>
+        @endforeach
+    @endif
 @endsection

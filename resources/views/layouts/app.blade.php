@@ -30,42 +30,39 @@
 <div id="app">
     <nav>
         <div class="nav-wrapper container">
-            <a class="brand-logo" href="{{ url('/') }}">
+            <a class="brand-logo hide-on-small-and-down" href="{{ url('/') }}">
                 {{ config('app.name', 'Laravel') }}
             </a>
+            <a class="hide-on-med-and-up" href="{{ url('/') }}">
+                {{ config('app.name', 'Laravel') }}
+            </a>
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
 
-            <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <!-- Authentication Links -->
-                @guest
-                    <li>
-                        <a href="{{ route('login') }}">{{ __('Login') }}</a>
-                    </li>
-                    @if (Route::has('register'))
-                        <li>
-                            <a href="{{ route('register') }}">{{ __('Register') }}</a>
-                        </li>
-                    @endif
-                @else
-                    <li>
-                        <a href="{{ route('logout') }}"
-                           onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                            {{ __('Logout') }}
-                        </a>
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                              style="display: none;">
-                            @csrf
-                        </form>
-                    </li>
-                @endguest
-            </ul>
+            @guest
+                <ul class="right hide-on-med-and-down">
+                    @component('components.nav-links')
+                    @endcomponent
+                </ul>
+            @endif
         </div>
     </nav>
+
+    <ul class="sidenav" id="mobile-demo">
+        @component('components.nav-links')
+        @endcomponent
+    </ul>
 
     <main class="py-4">
         @yield('content')
     </main>
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script>
+    jQuery(document).ready(function () {
+        jQuery('.sidenav').sidenav();
+    });
+</script>
 @yield('js')
 </body>
 </html>

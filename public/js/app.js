@@ -35731,9 +35731,9 @@ module.exports = g;
  * includes Vue and other libraries. It is a great starting point when
  * building robust, powerful web applications using Vue and Laravel.
  */
-__webpack_require__(/*! materialize-css */ "./node_modules/materialize-css/dist/js/materialize.js");
-
 __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+
+__webpack_require__(/*! materialize-css */ "./node_modules/materialize-css/dist/js/materialize.js");
 
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 /**

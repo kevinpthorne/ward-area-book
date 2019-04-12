@@ -4,8 +4,9 @@
  * includes Vue and other libraries. It is a great starting point when
  * building robust, powerful web applications using Vue and Laravel.
  */
-require("materialize-css");
 require('jquery');
+require("materialize-css");
+
 
 window.Vue = require('vue');
 
