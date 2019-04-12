@@ -1,14 +1,23 @@
-
 // Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 
 // Variables
 @import 'variables';
 
-// Bootstrap
-@import '~bootstrap/scss/bootstrap';
+// Materialize
+@import 'materialize';
 
 .navbar-laravel {
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+#login-page .card-panel.border-radius-6.login-card {
+  margin-left: 0 !important;
+}
+.pt-2 {
+  padding-top: 2% !important;
+}
+.margin {
+  margin: 0 !important;
 }

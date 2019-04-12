@@ -36,4 +36,14 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function visitsAttended()
+    {
+        $this->belongsToMany('App\Visit','visit_attendees','user_id','visit_id');
+    }
+
+    public function districtAssignments()
+    {
+        $this->hasMany('App\District');
+    }
 }
