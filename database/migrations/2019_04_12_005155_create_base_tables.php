@@ -30,11 +30,11 @@ class CreateBaseTables extends Migration
 
         Schema::create('persons', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('first_name', 25);
-            $table->string('last_name', 25);
-            $table->string("type", 25);
-            $table->string("address",45);
-            $table->string("phone", 15);
+            $table->string('first_name', 50);
+            $table->string('last_name', 50);
+            $table->string("type", 50);
+            $table->string("address");
+            $table->string("phone");
 
             $table->text("background_information");
 
@@ -49,6 +49,7 @@ class CreateBaseTables extends Migration
         Schema::create('visits', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->timestamp('datetime_visited');
+            $table->boolean("met");
             $table->text("visit_summary");
             $table->boolean("attended_church_this_week")->nullable();
             $table->string("record_of_bom_reading", 20)->nullable();

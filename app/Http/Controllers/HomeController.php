@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Visit;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +24,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $recentVisits = Visit::with('person')->orderBy('datetime_visited', 'desc')->limit(5)->get();
+        return view('home')->with([
+            'recent_visits' => $recentVisits
+        ]);
     }
 }

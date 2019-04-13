@@ -32,3 +32,11 @@
   color: #FFF;
   width:auto;
 }
+
+table tr th.non-bold {
+  font-weight:normal;
+}
+
+table.vertical-table td {
+  text-align: right;
+}

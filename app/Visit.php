@@ -10,7 +10,7 @@ class Visit extends Model
 
     public function person()
     {
-        $this->belongsTo('App\Person','person_id','id');
+        return $this->belongsTo('App\Person','person_id','id');
     }
 
     public function attendees()
