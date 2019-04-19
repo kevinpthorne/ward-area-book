@@ -1,10 +1,16 @@
 <template>
-    <img :id="id" src="" alt="" class="circle responsive-img"/>
+    <div class="tooltip">
+        <img :id="id" src="" v-bind:alt="alt" v-bind:title="alt" class="circle responsive-img"/>
+        <span class="tooltiptext">alt</span>
+    </div>
 </template>
 
 <script>
     export default {
         name: "RandomAvatar",
+        props: [
+            "alt"
+        ],
         data() {
             return {
                 id: null

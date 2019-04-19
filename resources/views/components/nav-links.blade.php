@@ -27,8 +27,8 @@
             {{__("Dashboard")}}
         </a>
     </li>
-    <li>
-        <a href="#">
+    <li class="{{ Route::currentRouteNamed('person.list') ? 'active' : '' }}">
+        <a href="{{route('person.list')}}">
             {{__("People")}}
         </a>
     </li>

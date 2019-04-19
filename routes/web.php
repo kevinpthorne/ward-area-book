@@ -13,4 +13,7 @@
 
 Auth::routes(['verify' => true]);
 
-Route::get('/', 'HomeController@index')->name('home')->middleware('verified');
+Route::get('/', 'HomeController@index')->name('home');
+
+Route::get('/people', 'PersonController@list')->name('person.list');
+Route::get('/people/{id}', 'PersonController@get')->name('person.get');

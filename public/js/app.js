@@ -132,8 +132,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "RandomAvatar",
+  props: ["alt"],
   data: function data() {
     return {
       id: null
@@ -23667,10 +23671,14 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("img", {
-    staticClass: "circle responsive-img",
-    attrs: { id: _vm.id, src: "", alt: "" }
-  })
+  return _c("div", { staticClass: "tooltip" }, [
+    _c("img", {
+      staticClass: "circle responsive-img",
+      attrs: { id: _vm.id, src: "", alt: _vm.alt, title: _vm.alt }
+    }),
+    _vm._v(" "),
+    _c("span", { staticClass: "tooltiptext" }, [_vm._v("alt")])
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true

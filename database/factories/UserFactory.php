@@ -46,6 +46,7 @@ $factory->define(Person::class, function (Faker $faker) {
             "Part-Member Family",
             "Investigator",
             "Recent Convert",
+            "Member"
         ]),
         'phone' => $faker->phoneNumber,
         'address' => $faker->address,

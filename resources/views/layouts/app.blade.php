@@ -28,29 +28,32 @@
 
 <body>
 <div id="app">
-    <nav>
-        <div class="nav-wrapper container">
-            <a class="brand-logo hide-on-small-and-down" href="{{ url('/') }}">
-                {{ config('app.name', 'Laravel') }}
-            </a>
-            <a class="hide-on-med-and-up" href="{{ url('/') }}">
-                {{ config('app.name', 'Laravel') }}
-            </a>
-            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
 
-            @guest
-                <ul class="right hide-on-med-and-down">
-                    @component('components.nav-links')
-                    @endcomponent
-                </ul>
-            @endif
-        </div>
-    </nav>
+    <header>
+        <nav>
+            <div class="container nav-wrapper">
+                <a class="sidebar-wrapper brand-logo hide-on-small-and-down" href="{{ url('/') }}">
+                    {{ config('app.name', 'Laravel') }}
+                </a>
+                <a class="hide-on-med-and-up" href="{{ url('/') }}">
+                    {{ config('app.name', 'Laravel') }}
+                </a>
+                <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
 
-    <ul class="sidenav" id="mobile-demo">
-        @component('components.nav-links')
-        @endcomponent
-    </ul>
+                @guest
+                    <ul class="right hide-on-med-and-down">
+                        @component('components.nav-links')
+                        @endcomponent
+                    </ul>
+                @endif
+            </div>
+        </nav>
+
+        <ul class="sidenav" id="mobile-demo">
+            @component('components.nav-links')
+            @endcomponent
+        </ul>
+    </header>
 
     <main class="py-4">
         @yield('content')
