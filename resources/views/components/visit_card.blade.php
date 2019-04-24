@@ -11,9 +11,6 @@
                 <div class="row margin">
                     {{ $visit->person->type }}
                 </div>
-                <div class="row margin pt-2">
-                    <i>{{__("Visited since ")}}  {{ Carbon\Carbon::parse($visit->person->created_at)->diffForHumans() }}</i>
-                </div>
             </div>
             <div class="col s5 m3 l3 hide-on-med-and-down">
                 <i>{{__("Visited")}}  {{ Carbon\Carbon::parse($visit->datetime_visited)->diffForHumans() }}</i>

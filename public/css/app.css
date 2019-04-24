@@ -9290,6 +9290,10 @@ input[type=range]::-ms-thumb {
   margin: 0 !important;
 }
 
+.inner-content-margin {
+  margin: 30px;
+}
+
 .fab-tip {
   position: fixed;
   right: 85px;

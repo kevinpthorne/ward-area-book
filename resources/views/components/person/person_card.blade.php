@@ -13,14 +13,16 @@
                 </div>
             </div>
             <div>
-                <a class='dropdown-trigger' href='#'
-                   data-target='context_dropdown'>
+                <a class='dropdown-trigger' href='#' data-constrainWidth="false" data-hover="true"
+                   data-target='context_dropdown_{{$person->id}}'>
                     <i class="material-icons">more_vert</i>
                 </a>
 
-                <ul id="context_dropdown" class="dropdown-content">
+                <ul id="context_dropdown_{{$person->id}}" class="dropdown-content">
                     <li>
-                        <a href=""><i class="small material-icons">person_pin</i></a></li>
+                        <a href="https://maps.google.com/?q={{$person->address}}" target="_blank">
+                            <i class="small material-icons">person_pin</i>{{ __("Locate") }}</a>
+                    </li>
                     <li>
                         <a href="tel:{{ preg_replace('/[^\p{L}\p{N}\s]/u', '', $person->phone) }}">
                             <i class="small material-icons">phone</i> {{ __("Call") }} {{ $person->phone }}</a>
@@ -29,7 +31,7 @@
                             <i class="small material-icons">message</i> {{ __("Message") }} {{ $person->phone }} </a>
                     </li>
                     <li><a href="{{route('person.get', ['id' => $person->id])}}">
-                            <i class="small material-icons">info_outline</i></a>
+                            <i class="small material-icons">info_outline</i>{{ __("More Info") }}</a>
                     </li>
                 </ul>
             </div>
@@ -96,7 +98,11 @@
 
 @section('js')
     <script>
-        $('.dropdown-trigger').dropdown();
+        jQuery(document).ready(function () {
+            jQuery('.dropdown-trigger').dropdown({
+                constrainWidth: false
+            });
+        });
     </script>
 @endsection
 

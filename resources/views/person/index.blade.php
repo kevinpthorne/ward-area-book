@@ -4,7 +4,7 @@
     <div class="row">
         <div class="col s12">
             <div class="row">
-                <div class="col s12 m7 l6 card-panel">
+                <div class="col s12 m7 l6 section">
 
                     <div class="row">
                         <div class="col">

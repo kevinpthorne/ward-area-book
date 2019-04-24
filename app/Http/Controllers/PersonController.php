@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Person;
-use Illuminate\Http\Request;
 
 class PersonController extends Controller
 {
@@ -21,7 +20,7 @@ class PersonController extends Controller
     public function list()
     {
         return view('person.index')->with([
-            'persons' => Person::orderBy('updated_at', 'desc')->get()
+            'persons' => Person::orderBy('first_name', 'asc')->get()
         ]);
     }
 
