@@ -5,8 +5,9 @@ use App\District;
 use App\Person;
 use App\User;
 use App\Visit;
-use Illuminate\Support\Str;
 use Faker\Generator as Faker;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,6 +19,8 @@ use Faker\Generator as Faker;
 | model instances for testing / seeding your application's database.
 |
 */
+
+const DEFAULT_PASSWORD = 'password';
 
 $factory->define(User::class, function (Faker $faker) {
     return [
@@ -32,7 +35,8 @@ $factory->define(User::class, function (Faker $faker) {
         'email' => $faker->unique()->safeEmail,
         'email_verified_at' => now(),
         'phone' => $faker->phoneNumber,
-        'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+//        'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+        'password' => Hash::make(DEFAULT_PASSWORD),
         'remember_token' => Str::random(10),
     ];
 });

@@ -15,6 +15,6 @@ class Visit extends Model
 
     public function attendees()
     {
-        $this->hasMany('App\User','user_id');
+        return $this->hasMany('App\User','id','user_id');
     }
 }

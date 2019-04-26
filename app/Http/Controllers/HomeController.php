@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Visit;
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
 
-class HomeController extends Controller
+class HomeController extends Controller implements HasRoutes
 {
     /**
      * Create a new controller instance.
@@ -29,5 +29,10 @@ class HomeController extends Controller
         return view('home')->with([
             'recent_visits' => $recentVisits
         ]);
+    }
+
+    public static function routes()
+    {
+        Route::get('/', 'HomeController@index')->name('home');
     }
 }

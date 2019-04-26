@@ -44,17 +44,17 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function visitsAttended()
     {
-        $this->belongsToMany('App\Visit','visit_attendees','user_id','visit_id');
+        return $this->belongsToMany('App\Visit','visit_attendees','user_id','visit_id');
     }
 
     public function companionships()
     {
-        $this->hasMany("App\Companionship");
+        return $this->hasMany("App\Companionship");
     }
 
     public function districtAssignments()
     {
-        $this->hasMany('App\District');
+        return $this->hasMany('App\District');
     }
 
     public function position()

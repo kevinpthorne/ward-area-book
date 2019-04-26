@@ -11,9 +11,10 @@
 |
 */
 
+use Illuminate\Support\Facades\Auth;
+
 Auth::routes(['verify' => true]);
 
-Route::get('/', 'HomeController@index')->name('home');
-
-Route::get('/people', 'PersonController@list')->name('person.list');
-Route::get('/people/{id}', 'PersonController@get')->name('person.get');
+\App\Http\Controllers\HomeController::routes();
+\App\Http\Controllers\PersonController::routes();
+\App\Http\Controllers\VisitController::routes();
