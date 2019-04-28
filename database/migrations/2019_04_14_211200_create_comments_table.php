@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 class CreateCommentsTable extends Migration
 {
@@ -20,8 +20,8 @@ class CreateCommentsTable extends Migration
             $table->string("comment_content");
             $table->timestamps();
 
-            $table->foreign('visit_id')->references('id')->on('visits');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('visit_id')->references('id')->on('visits')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
