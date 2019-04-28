@@ -66,6 +66,7 @@
         jQuery('.sidenav').sidenav();
     });
 </script>
+@yield('template-js')
 @yield('js')
 </body>
 </html>

@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Person;
 use Illuminate\Support\Facades\Route;
 
-class PersonController extends Controller implements HasRoutes
+class PersonController extends Controller implements HasWebRoutes
 {
 
     public static function routes()
@@ -18,11 +18,6 @@ class PersonController extends Controller implements HasRoutes
     {
         $this->middleware('auth');
         $this->middleware('verified');
-    }
-
-    public function index()
-    {
-
     }
 
     public function getIndex()

@@ -43,8 +43,9 @@
                             <a href="#" class="btn-floating fab-tip">New Person</a>
                         </li>
                         <li>
-                            <a class="btn-floating yellow darken-3"><i class="material-icons">assignment_turned_in</i></a>
-                            <a href="#" class="btn-floating fab-tip">New Visit</a>
+                            <a href="{{route('visit.new')}}" class="btn-floating yellow darken-3"><i
+                                        class="material-icons">assignment_turned_in</i></a>
+                            <a class="btn-floating fab-tip">New Visit</a>
                         </li>
                     </ul>
                 </div>
@@ -54,11 +55,11 @@
 
 @endsection
 
-@section('js')
+@section('template-js')
     <script>
-        $(document).ready(function () {
-            $('.fixed-action-btn').floatingActionButton();
-            $('.tooltipped').tooltip({delay: 50});
+        jQuery(document).ready(function () {
+            jQuery('.fixed-action-btn').floatingActionButton();
+            jQuery('.tooltipped').tooltip({delay: 50});
         });
     </script>
 @endsection

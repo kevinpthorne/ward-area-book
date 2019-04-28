@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Visit;
 use Illuminate\Support\Facades\Route;
 
-class HomeController extends Controller implements HasRoutes
+class HomeController extends Controller implements HasWebRoutes
 {
     /**
      * Create a new controller instance.

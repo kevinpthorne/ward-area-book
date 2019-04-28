@@ -14,15 +14,16 @@ class VisitController extends Controller
 
     public static function routes()
     {
-//        Route::get('/people', 'PersonController@getIndex')->name('person.list');
-//        Route::get('/people/{id}', 'PersonController@get')->name('person.get');
         Route::get('/visit', 'VisitController@getNewVisitPage')->name('visit.new');
         Route::post('/visit', 'VisitController@postVisit')->name('visit.create');
     }
 
     public function getNewVisitPage()
     {
-        return view('visit.new');
+        return view('visit.new')->with([
+            'persons' => Person::orderBy('first_name', 'asc')->get(),
+            'users' => User::all()
+        ]);
     }
 
     protected function validateVisit($data)

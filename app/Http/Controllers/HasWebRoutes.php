@@ -8,7 +8,7 @@
 
 namespace App\Http\Controllers;
 
-interface HasRoutes
+interface HasWebRoutes
 {
 
     public static function routes();
