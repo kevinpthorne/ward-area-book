@@ -11,7 +11,8 @@ class Person extends Model
 
     public function assignment()
     {
-        return $this->belongsToMany("App\Companionship", 'companionship_has_person', 'person_id', 'companionship_id');
+        return $this->belongsToMany("App\Companionship", 'companionship_has_person',
+            'person_id', 'companionship_id')->withTimestamps();
     }
 
     public function visitsReceived()
