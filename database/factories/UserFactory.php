@@ -26,7 +26,7 @@ $factory->define(User::class, function (Faker $faker) {
     return [
         'first_name' => $faker->firstName,
         'last_name' => $faker->lastName,
-        'user_type' => $faker->randomKey([
+        'user_type' => $faker->randomElement([
             User::USER_TYPE_NORMAL,
             User::USER_TYPE_NORMAL,
             User::USER_TYPE_NORMAL,
@@ -38,6 +38,7 @@ $factory->define(User::class, function (Faker $faker) {
 //        'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
         'password' => Hash::make(DEFAULT_PASSWORD),
         'remember_token' => Str::random(10),
+        'img_url' => ''
     ];
 });
 

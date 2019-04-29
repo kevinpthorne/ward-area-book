@@ -14,6 +14,7 @@ class RootUserSeeder extends Seeder
     public function run()
     {
         $root = new User;
+        $root->id = 0;
         $root->first_name = "Root";
         $root->last_name = "User";
         $root->email = "root@localhost";
