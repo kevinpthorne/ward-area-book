@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Person;
 use App\User;
 use App\Visit;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Validator;
@@ -18,10 +19,17 @@ class VisitController extends Controller
         Route::post('/visit', 'VisitController@postVisit')->name('visit.create');
     }
 
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware('verified');
+    }
+
     public function getNewVisitPage()
     {
         return view('visit.new')->with([
-            'persons' => Person::orderBy('first_name', 'asc')->get(),
+//            'persons' => Person::orderBy('first_name', 'asc')->get(),
+            'persons' => Person::all(),
             'users' => User::all()
         ]);
     }
@@ -30,16 +38,18 @@ class VisitController extends Controller
     {
         return Validator::make($data, [
             'person_id' => ['required', 'numeric', 'exists:persons,id'],
-            'visit_attendees' => ['required'],
-            'datetime_visited' => ['required'],
-            'met' => ['required', 'boolean'],
+            'visit_attendees' => ['present', 'min:1', 'array'],
+            'visit_attendees.*' => ['required','exists:users,id'],
+            'datetime_visited' => ['required', 'date_format:Y-M-d H:i'],
         ]);
     }
 
     public function postVisit(Request $request)
     {
-        if ($this->validateVisit($request->all())->fails()) {
-            return abort(400);
+        $validation = $this->validateVisit($request->all());
+        if ($validation->fails()) {
+            //return redirect()->back()->withErrors($validation)->withInput();
+            return abort(400, $validation->getMessageBag());
         }
 
         $person = Person::find($request->get('person_id'));
@@ -47,11 +57,11 @@ class VisitController extends Controller
         foreach ($request->get('visit_attendees') as $visitAttendeesId) {
             array_push($visitAttendees, User::find($visitAttendeesId));
         }
-        $datetimeVisited = $request->get('datetime_visited');
+        $datetimeVisited = Carbon::parse($request->get('datetime_visited'));
         $visitSummary = $request->get('visit_summary');
-        $attendedChurchThisWeek = $request->get('attended_church_this_week');
+        $attendedChurchThisWeek = $request->get('attended_church_this_week') ? true : false;
         $bomReading = $request->get('record_of_bom_reading');
-        $met = $request->get('met');
+        $met = $request->get('met') ? true : false;
 
         if ($this->store($person, $visitAttendees, $datetimeVisited, $visitSummary, $met,
             $attendedChurchThisWeek, $bomReading)) {
@@ -62,7 +72,7 @@ class VisitController extends Controller
             ]);
 
         } else {
-            return abort(500);
+            return abort(500, "Store failed");
         }
 
     }

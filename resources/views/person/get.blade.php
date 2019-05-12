@@ -78,8 +78,8 @@
                             <h5>{{__('No visits!')}}</h5>
                         @else
                             <h5>{{ __("Visits") }}</h5>
-                            @foreach($person->visitsReceived as $visit)
-                                @component('components.visit_card', ['visit' => $visit])
+                            @foreach($person->visitsReceived->sortByDesc('datetime_visited') as $visit)
+                                @component('components.visit.summary', ['visit' => $visit])
                                 @endcomponent
                             @endforeach
                         @endif

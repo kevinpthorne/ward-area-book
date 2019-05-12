@@ -15,7 +15,7 @@ class ForFacebookLogin extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->string('email', 100)->nullable()->change();
-            $table->string('img_url')->nullable();
+            $table->string('img_url')->default('default.jpg');
             $table->string('password')->nullable()->change();
         });
     }

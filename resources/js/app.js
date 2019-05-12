@@ -5,7 +5,7 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 require('jquery');
-require("materialize-css");
+require("./materialize.js");
 
 
 window.Vue = require('vue');

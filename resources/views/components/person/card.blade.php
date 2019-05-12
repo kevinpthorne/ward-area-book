@@ -1,10 +1,11 @@
 <div class="col s12 m12 l12 card-panel" style="padding:5%;">
     <div class="margin">
         <div class="row left-align">
-            <div class="col s5 m3 l2">
-                <random-avatar alt="{{ $person->first_name }} {{ $person->last_name }}"></random-avatar>
+            <div class="col s4 m3 l2">
+                <random-avatar href="{{ route('person.get', ['id' => $person->id]) }}"
+                        alt="{{ $person->first_name }} {{ $person->last_name }}"></random-avatar>
             </div>
-            <div class="col s6 m9 l7">
+            <div class="col s6 m8 l7">
                 <div class="row margin">
                     <h5>{{ $person->first_name }} {{ $person->last_name }}</h5>
                 </div>
@@ -12,7 +13,7 @@
                     {{ $person->type }}
                 </div>
             </div>
-            <div>
+            <div class="col s1 m1 l3 right-align">
                 <a class='dropdown-trigger' href='#' data-constrainWidth="false" data-hover="true"
                    data-target='context_dropdown_{{$person->id}}'>
                     <i class="material-icons">more_vert</i>
@@ -42,7 +43,7 @@
         </div>
     </div>
     <div class="row margin pb-2">
-        <div class="col s3 m3 l3">
+        <div class="col s4 m3 l3">
             <p class="margin">{{
 
             ($person->datetime_initial_contact == null) ?
@@ -52,7 +53,7 @@
             }}</p>
             <p class="margin"><strong>{{__("Inital Contact")}}</strong></p>
         </div>
-        <div class="col s3 m3 l3">
+        <div class="col s4 m3 l3">
             <p class="margin">{{
 
             ($person->datetime_scheduled_baptism == null) ?
@@ -62,7 +63,7 @@
             }}</p>
             <p class="margin"><strong>{{__("Scheduled Baptism")}}</strong></p>
         </div>
-        <div class="col s3 m3 l3">
+        <div class="col s4 m3 l3">
             <p class="margin">{{
 
             ($person->datetime_actual_baptism == null) ?
@@ -72,7 +73,7 @@
             }}</p>
             <p class="margin"><strong>{{__("Baptism")}}</strong></p>
         </div>
-        <div class="col s3 m3 l3">
+        <div class="col s3 m3 l3 hide-on-small-only">
             <p class="margin">{{
 
             ($person->datetime_actual_confirmation == null) ?

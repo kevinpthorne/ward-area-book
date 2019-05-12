@@ -18,7 +18,7 @@
                                 <h5>{{__('No visits!')}}</h5>
                             @else
                                 @foreach($recent_visits as $visit)
-                                    @component('components.visit_card', ['visit' => $visit])
+                                    @component('components.visit.card', ['visit' => $visit])
                                     @endcomponent
                                 @endforeach
                             @endif

@@ -18,3 +18,4 @@ Auth::routes(['verify' => true]);
 \App\Http\Controllers\HomeController::routes();
 \App\Http\Controllers\PersonController::routes();
 \App\Http\Controllers\VisitController::routes();
+\App\Http\Controllers\UserController::routes();

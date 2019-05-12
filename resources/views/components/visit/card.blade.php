@@ -2,7 +2,8 @@
     <div class="margin">
         <div class="row left-align">
             <div class="col s5 m3 l2">
-                <random-avatar alt="{{ $visit->person->first_name }} {{ $visit->person->last_name }}"></random-avatar>
+                <random-avatar href="{{ route('person.get', ['id' => $visit->person->id]) }}"
+                               alt="{{ $visit->person->first_name }} {{ $visit->person->last_name }}"></random-avatar>
             </div>
             <div class="col s6 m9 l7">
                 <div class="row margin">
@@ -14,7 +15,10 @@
             </div>
             <div class="col s5 m3 l3 hide-on-med-and-down">
                 <i>{{__("Visited")}}  {{ Carbon\Carbon::parse($visit->datetime_visited)->diffForHumans() }}</i>
-                <p>people here</p>
+                <p>
+                    @component('components.attendees', ['visit' => $visit])
+                    @endcomponent
+                </p>
             </div>
         </div>
     </div>
@@ -27,6 +31,9 @@
     </div>
     <div class="row margin col s12 m12 l12 right-align hide-on-large-only">
         <i>{{__("Visited")}}  {{ Carbon\Carbon::parse($visit->datetime_visited)->diffForHumans() }}</i>
-        <p>people here</p>
+        <p>
+            @component('components.attendees', ['visit' => $visit])
+            @endcomponent
+        </p>
     </div>
 </div>

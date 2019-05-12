@@ -4,7 +4,7 @@
     <div class="row">
         <div class="col s12">
             <div class="row">
-                <div class="col s12 m7 l6 section">
+                <div class="col s12 m12 l9 section">
 
                     <div class="row">
                         <div class="col">
@@ -18,7 +18,7 @@
                                 <h5>{{__('No people!')}}</h5>
                             @else
                                 @foreach($persons as $person)
-                                    @component('components.person.person_card', ['person' => $person])
+                                    @component('components.person.card', ['person' => $person])
                                     @endcomponent
                                 @endforeach
                             @endif
